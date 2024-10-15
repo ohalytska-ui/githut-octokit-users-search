@@ -21,6 +21,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
     },
   },
+  { extends: ['react-app'] },
   { plugins: ['prettier'] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
