@@ -1,12 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './slices/userSlice';
 import { apiSlice } from './api/apiSlice';
 import { listenerMiddleware } from './helpers';
 
 export const store = configureStore({
   // Pass in the root reducer setup as the `reducer` argument
   reducer: {
-    users: userReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>

@@ -1,11 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { HttpMethod, User } from '../models';
+import { HttpMethod, User, UserFollower, UserFollowing, UserSearchResponse } from '../models';
 import { octokitBaseQuery } from '../helpers';
 
 // Define our API slice object
 export const apiSlice = createApi({
-  reducerPath: 'api',
+  reducerPath: 'githubApi',
   // Handle work with Octokit lib
   baseQuery: octokitBaseQuery,
   // track data changes while refetching
@@ -19,10 +19,31 @@ export const apiSlice = createApi({
         method: HttpMethod.GET,
       }),
     }),
-    // Fetch user by ID
-    getUser: builder.query<User, string>({
-      query: (userId) => ({
-        url: `/user/${userId}`,
+    // Search by user name + paggination
+    searchUsers: builder.query<UserSearchResponse, { username: string; page: number }>({
+      query: ({ username, page }) => ({
+        url: `/search/users?q=${username}&page=${page}&per_page=30`,
+        method: HttpMethod.GET,
+      }),
+    }),
+    // Fetch user by username
+    getUserDetails: builder.query<User, string>({
+      query: (username) => ({
+        url: `/users/${username}`,
+        method: HttpMethod.GET,
+      }),
+    }),
+    // Fetch user followers
+    getUserFollowers: builder.query<UserFollower[], string>({
+      query: (url) => ({
+        url: url,
+        method: HttpMethod.GET,
+      }),
+    }),
+    // Fetch user following
+    getUserFollowing: builder.query<UserFollowing[], string>({
+      query: (url) => ({
+        url: url,
         method: HttpMethod.GET,
       }),
     }),
@@ -30,4 +51,10 @@ export const apiSlice = createApi({
 });
 
 // Export the auto-generated hook for all query endpoints
-export const { useGetUsersQuery, useGetUserQuery } = apiSlice;
+export const {
+  useGetUsersQuery,
+  useGetUserDetailsQuery,
+  useSearchUsersQuery,
+  useGetUserFollowersQuery,
+  useGetUserFollowingQuery,
+} = apiSlice;

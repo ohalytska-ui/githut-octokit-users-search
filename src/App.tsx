@@ -2,15 +2,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Main } from './pages/Main';
+import { SearchUsers } from './pages/SearchUsers';
+import UserDetails from './pages/UserDetails';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/user/:userId" element={<>/user/:userId</>} />
+          <Route path="/" element={<SearchUsers />} />
+          <Route path="/user/:username" element={<UserDetails />} />
         </Routes>
       </div>
     </Router>
