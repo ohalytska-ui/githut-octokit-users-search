@@ -1,15 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices';
+import userReducer from './slices/userSlice';
+import { apiSlice } from './api/apiSlice';
+import { listenerMiddleware } from './helpers';
 
-const store = configureStore({
+export const store = configureStore({
+  // Pass in the root reducer setup as the `reducer` argument
   reducer: {
-    counter: counterReducer,
+    users: userReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(listenerMiddleware.middleware).concat(apiSlice.middleware),
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+// Infer the type of `store`
+export type AppStore = typeof store;
+// Same for the `RootState` type
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+// Infer the `AppDispatch` type from the store itself
 export type AppDispatch = typeof store.dispatch;
 
 export default store;

@@ -1,19 +1,28 @@
-import React from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
+import store from './store';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Main } from './pages/Main';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/user/:userId" element={<>/user/:userId</>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function AppWithProviders() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+}
+
+export default AppWithProviders;

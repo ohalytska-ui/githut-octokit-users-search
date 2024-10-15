@@ -8,7 +8,6 @@ export default [
   { languageOptions: { globals: globals.browser } },
   {
     rules: {
-      semi: 'error',
       'no-console': 'warn',
       'prettier/prettier': 'error',
       'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
@@ -18,7 +17,6 @@ export default [
       curly: 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': 'warn',
-      'react/react-in-jsx-scope': 'off',
     },
   },
   { extends: ['react-app'] },
