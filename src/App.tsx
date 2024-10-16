@@ -2,8 +2,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { SearchUsers } from './pages/SearchUsers';
-import UserDetails from './pages/UserDetails';
+import SearchUsers from './pages/SearchUsers';
+import User from './pages/User';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<SearchUsers />} />
-          <Route path="/user/:username" element={<UserDetails />} />
+          <Route path="/user/:username" element={<User />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { HttpMethod, User, UserFollower, UserFollowing, UserSearchResponse } from '../models';
+import { HttpMethod, User, UserSearchResponse } from '../models';
 import { octokitBaseQuery } from '../helpers';
 
 // Define our API slice object
@@ -8,7 +8,7 @@ export const apiSlice = createApi({
   reducerPath: 'githubApi',
   // Handle work with Octokit lib
   baseQuery: octokitBaseQuery,
-  // track data changes while refetching
+  // Track data changes while refetching
   tagTypes: ['Users'],
   // The "endpoints" represent operations and requests for this server
   endpoints: (builder) => ({
@@ -34,14 +34,14 @@ export const apiSlice = createApi({
       }),
     }),
     // Fetch user followers
-    getUserFollowers: builder.query<UserFollower[], string>({
+    getUserFollowers: builder.query<User[], string>({
       query: (url) => ({
         url: url,
         method: HttpMethod.GET,
       }),
     }),
     // Fetch user following
-    getUserFollowing: builder.query<UserFollowing[], string>({
+    getUserFollowing: builder.query<User[], string>({
       query: (url) => ({
         url: url,
         method: HttpMethod.GET,
