@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import { useGetUserDetailsQuery, useGetUserFollowersQuery, useGetUserFollowingQuery } from '../api/apiSlice';
+import { useGetUserDetailsQuery, useGetUserFollowersQuery, useGetUserFollowingQuery } from '@/api/apiSlice';
 import Grid from '@mui/material/Grid2';
-import { ErrorAlert, Loader, UserGeneral, UserDetails, Followings, BackButton, ContainerWrapper } from '../components';
+import { ErrorAlert, Loader, UserGeneral, UserDetails, Followings, BackButton, ContainerWrapper } from '@/components';
 
 const User = () => {
   const { username } = useParams<{ username: string }>();

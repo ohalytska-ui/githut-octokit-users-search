@@ -2,9 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Props } from './types';
 import { Box, Paper, Typography } from '@mui/material';
-import { UserFollowingsItem } from '../user-followings-item';
-import { Loader } from '../loader';
-import { ErrorAlert } from '../error-alert';
+import { ErrorAlert, Loader, UserFollowingsItem } from '..';
 
 export const Followings: React.FC<Props> = ({ title, errorText, emptyData, isFetching, isError, userFollowings }) => {
   return (

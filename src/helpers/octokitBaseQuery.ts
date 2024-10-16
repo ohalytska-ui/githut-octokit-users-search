@@ -1,7 +1,6 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/query/react';
 import { Octokit } from '@octokit/core';
-
-import { HttpMethod } from '../models';
+import { HttpMethod } from '@/models';
 
 // Initialize Octokit with GitHub auth token
 const octokit = new Octokit({

@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { HttpMethod, User, UserSearchResponse } from '../models';
-import { octokitBaseQuery } from '../helpers';
+import { HttpMethod, User, UserSearchResponse } from '@/models';
+import { octokitBaseQuery } from '@/helpers';
 
 // Define our API slice object
 export const apiSlice = createApi({

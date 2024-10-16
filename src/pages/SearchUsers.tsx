@@ -1,11 +1,11 @@
 // Unique ID because there is not always a user ID and login data is partially repeated
 import { v4 as uuidv4 } from 'uuid';
-import { useSearchUsersQuery } from '../api/apiSlice';
+import { useSearchUsersQuery } from '@/api/apiSlice';
 import { useCallback, useEffect, useState } from 'react';
-import { debounce } from '../utiles/debounce';
 import { List, Box, TextField } from '@mui/material';
-import { User } from '../models';
-import { ContainerWrapper, ErrorAlert, Loader, UserItem } from '../components';
+import { ContainerWrapper, ErrorAlert, Loader, UserItem } from '@/components';
+import { debounce } from '@/utiles';
+import { User } from '@/models';
 
 const SearchUsers = () => {
   const [searchString, setSearchString] = useState<string>('');

@@ -1,4 +1,4 @@
-import { DEBOUNCE_DELAY } from '../models';
+import { DEBOUNCE_DELAY } from '@/models';
 
 export const debounce = <T extends (...args: any[]) => void>(
   fn: T,
