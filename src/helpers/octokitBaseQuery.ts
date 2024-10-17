@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BaseQueryFn } from '@reduxjs/toolkit/query/react';
 import { Octokit } from '@octokit/core';
 import { HttpMethod } from '@/models';

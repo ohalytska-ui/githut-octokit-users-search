@@ -1,8 +1,11 @@
 import { ListItem, ListItemText, Avatar } from '@mui/material';
+import React, { FC } from 'react';
 import { Props } from './types';
 
-export const UserItem: React.FC<Props> = ({ user }) => {
-  const { login, avatar_url } = user;
+export const UserItem: FC<Props> = (props) => {
+  const {
+    user: { login, avatar_url },
+  } = props;
 
   return (
     <ListItem

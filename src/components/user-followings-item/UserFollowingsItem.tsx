@@ -1,7 +1,8 @@
-import { Props } from './types';
 import { Box, Avatar, Typography } from '@mui/material';
+import React, { FC } from 'react';
+import { Props } from './types';
 
-export const UserFollowingsItem: React.FC<Props> = ({ followings }) => {
+export const UserFollowingsItem: FC<Props> = ({ followings }) => {
   const { id, login, avatar_url } = followings;
 
   return (

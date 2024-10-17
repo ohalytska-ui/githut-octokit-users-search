@@ -1,10 +1,10 @@
 // Unique ID because there is not always a user ID and login data is partially repeated
-import { v4 as uuidv4 } from 'uuid';
-import { useSearchUsersQuery } from '@/api/apiSlice';
-import { useCallback, useEffect, useState } from 'react';
-import { List, Box, TextField } from '@mui/material';
 import { ContainerWrapper, ErrorAlert, Loader, UserItem } from '@/components';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useSearchUsersQuery } from '@/api/apiSlice';
+import { List, Box, TextField } from '@mui/material';
 import { debounce } from '@/utiles';
+import { v4 as uuidv4 } from 'uuid';
 import { User } from '@/models';
 
 const SearchUsers = () => {
@@ -23,7 +23,7 @@ const SearchUsers = () => {
   // Fetching users during scrolling
   useEffect(() => {
     if (data?.items) {
-      setFilteredUsers((currentUsers) => [...currentUsers, ...data?.items]);
+      setFilteredUsers((currentUsers) => [...currentUsers, ...(data?.items ?? [])]);
     }
   }, [data]);
 

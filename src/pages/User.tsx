@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
-import { Box, Typography } from '@mui/material';
-import { useGetUserDetailsQuery, useGetUserFollowersQuery, useGetUserFollowingQuery } from '@/api/apiSlice';
-import Grid from '@mui/material/Grid2';
 import { ErrorAlert, Loader, UserGeneral, UserDetails, Followings, BackButton, ContainerWrapper } from '@/components';
+import { useGetUserDetailsQuery, useGetUserFollowersQuery, useGetUserFollowingQuery } from '@/api/apiSlice';
+import { Box, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import Grid from '@mui/material/Grid2';
+import React from 'react';
 
 const User = () => {
   const { username } = useParams<{ username: string }>();
@@ -19,9 +20,13 @@ const User = () => {
     isError: isUserFollowingError,
   } = useGetUserFollowingQuery(user?.following_url ?? '');
 
-  if (isFetching) return <Loader />;
+  if (isFetching) {
+    return <Loader />;
+  }
 
-  if (isError || !user) return <ErrorAlert title="Error" errorText="Something went wrong with loading user data!" />;
+  if (isError || !user) {
+    return <ErrorAlert title="Error" errorText="Something went wrong with loading user data!" />;
+  }
 
   return (
     <ContainerWrapper>

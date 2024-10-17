@@ -1,7 +1,8 @@
-import { Props } from './types';
 import { Typography, Paper } from '@mui/material';
+import React, { FC } from 'react';
+import { Props } from './types';
 
-export const UserDetails: React.FC<Props> = ({ user }) => {
+export const UserDetails: FC<Props> = ({ user }) => {
   const { company, email, blog } = user;
 
   return (

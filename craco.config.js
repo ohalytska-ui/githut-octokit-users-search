@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable no-undef */
+
 // CRACO is a package that helps resolve the alias idea in CRA, that helps override CRA’s configurations without the need to eject.
 const path = require('path');
 

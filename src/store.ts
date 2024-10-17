@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { apiSlice } from './api/apiSlice';
 import { listenerMiddleware } from './helpers';
+import { apiSlice } from './api/apiSlice';
 
 export const store = configureStore({
   // Pass in the root reducer setup as the `reducer` argument

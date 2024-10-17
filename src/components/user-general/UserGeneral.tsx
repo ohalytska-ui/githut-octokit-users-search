@@ -1,7 +1,8 @@
 import { Box, Avatar, Typography, Paper } from '@mui/material';
+import React, { FC } from 'react';
 import { Props } from './types';
 
-export const UserGeneral: React.FC<Props> = ({ user }) => {
+export const UserGeneral: FC<Props> = ({ user }) => {
   const { login, avatar_url, name } = user;
 
   return (

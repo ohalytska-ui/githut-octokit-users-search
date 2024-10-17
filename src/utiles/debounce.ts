@@ -1,5 +1,6 @@
 import { DEBOUNCE_DELAY } from '@/models';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const debounce = <T extends (...args: any[]) => void>(
   fn: T,
   delay: number = DEBOUNCE_DELAY,

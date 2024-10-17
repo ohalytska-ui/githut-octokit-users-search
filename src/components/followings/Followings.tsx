@@ -1,10 +1,11 @@
 // Unique ID
-import { v4 as uuidv4 } from 'uuid';
-import { Props } from './types';
-import { Box, Paper, Typography } from '@mui/material';
 import { ErrorAlert, Loader, UserFollowingsItem } from '..';
+import { Box, Paper, Typography } from '@mui/material';
+import { v4 as uuidv4 } from 'uuid';
+import React, { FC } from 'react';
+import { Props } from './types';
 
-export const Followings: React.FC<Props> = ({ title, errorText, emptyData, isFetching, isError, userFollowings }) => {
+export const Followings: FC<Props> = ({ title, errorText, emptyData, isFetching, isError, userFollowings }) => {
   return (
     <Paper elevation={3} sx={{ padding: '20px' }}>
       <Typography variant="h6" gutterBottom>

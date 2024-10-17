@@ -1,7 +1,8 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import prettierPlugin from 'eslint-plugin-prettier';
 import pluginReact from 'eslint-plugin-react';
+import tseslint from 'typescript-eslint';
+import pluginJs from '@eslint/js';
+import globals from 'globals';
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -19,8 +20,20 @@ export default [
       '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
-  { extends: ['react-app'] },
-  { plugins: ['prettier'] },
+  {
+    settings: {
+      react: {
+        version: 'detect',
+        pragma: 'React',
+        fragment: 'Fragment',
+      },
+    },
+  },
+  {
+    plugins: {
+      prettier: prettierPlugin,
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
